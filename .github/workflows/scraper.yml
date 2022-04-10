@@ -1,0 +1,35 @@
+name: scraper
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 12 * * *" # runs at 12:00 UTC everyday
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout repo content
+              uses: actions/checkout@v3
+
+            - name: setup go
+              uses: actions/setup-go@v3
+              with:
+                  go-version: '^1.17.8' # install the go version needed
+                  check-latest: true
+
+            - name: execute go script # run scraper.go to get the latest data
+              run: go run scraper.go
+
+            - name: commit files
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git add -A
+                  git diff --name-only --cached --exit-code || git commit -am "update allowlist"
+
+            - name: push changes
+              uses: ad-m/github-push-action@v0.6.0
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: main

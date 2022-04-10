@@ -1,0 +1,11 @@
+{
+    "extends": ["config:base"],
+    "ignoreTests": true,
+    "packageRules": [
+      {
+        "updateTypes": ["minor", "patch"],
+        "automerge": true
+      }
+    ]
+  }
+  
