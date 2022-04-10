@@ -37,7 +37,8 @@ func main() {
 	doc := soup.HTMLParse(resp)
 	links := doc.Find("div", "class", "result-list").FindAll("a", "class", "font-resize")
 
-	var urls []string
+	urls := make(map[string]bool)
+
 	for _, link := range links {
 		maybeURL, found := link.Attrs()["href"]
 		if found && !strings.HasPrefix(maybeURL, "tel") {
@@ -74,14 +75,23 @@ func main() {
 				// to lower case
 				strings.ToLower(raw_url)
 
-				urls = append(urls, raw_url)
+				urls[raw_url] = true
 			}
 		}
 	}
-	urls = unique(urls) // remove duplicates
-	sort.Strings(urls)  // sort alphabetically
-	if len(urls) > 0 {
-		err = os.WriteFile("mas-regulated-financial-institutions.txt", []byte(strings.Join(urls, "\n")), 0644)
+
+	// get map keys as slice
+	urls_ := make([]string, len(urls))
+	i := 0
+	for k := range urls {
+		urls_[i] = k
+		i++
+	}
+
+	sort.Strings(urls_) // sort alphabetically
+
+	if len(urls_) > 0 {
+		err = os.WriteFile("mas-regulated-financial-institutions.txt", []byte(strings.Join(urls_, "\n")), 0644)
 	} else {
 		log.Fatal("No URLs found")
 	}
