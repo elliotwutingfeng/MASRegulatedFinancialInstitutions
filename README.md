@@ -5,6 +5,7 @@
 
 [![GitHub license](https://img.shields.io/badge/LICENSE-BSD--3--CLAUSE-GREEN?style=for-the-badge)](LICENSE)
 [![scraper](https://img.shields.io/github/workflow/status/elliotwutingfeng/MASRegulatedFinancialInstitutions/scraper?label=SCRAPER&style=for-the-badge)](https://github.com/elliotwutingfeng/MASRegulatedFinancialInstitutions/actions/workflows/scraper.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/elliotwutingfeng/MASRegulatedFinancialInstitutions?style=for-the-badge)](https://goreportcard.com/report/github.com/elliotwutingfeng/MASRegulatedFinancialInstitutions)
 <img src="https://img.shields.io/tokei/lines/github/elliotwutingfeng/MASRegulatedFinancialInstitutions?label=Total%20Allowlist%20URLS&style=for-the-badge" alt="Total Allowlist URLs"/>
 
 Machine-readable `.txt` allowlist of websites belonging to financial institutions regulated by the [Monetary Authority of Singapore (MAS)](https://eservices.mas.gov.sg/fid/institution), updated once a day.
