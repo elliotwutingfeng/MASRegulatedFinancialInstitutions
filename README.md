@@ -39,7 +39,7 @@ go run scraper.go
 ## Libraries/Frameworks used
 
 -   [soup](https://github.com/anaskhan96/soup)
--   [tldextract](https://github.com/joeguo/tldextract)
+-   [tldextract](https://github.com/mjd2021usa/tldextract)
 
 &nbsp;
 

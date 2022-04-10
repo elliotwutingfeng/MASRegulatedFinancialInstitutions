@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/anaskhan96/soup"
-	"github.com/joeguo/tldextract"
+	"github.com/mjd2021usa/tldextract"
 )
 
 func unique(s []string) []string {
@@ -54,12 +54,12 @@ func main() {
 
 			extractResult := extract.Extract(raw_url)
 			// check if url is valid
-			if extractResult.Flag == 1 {
+			if extractResult.Flag == tldextract.Domain {
 
 				// include only subdomains, root domain and tld
-				Sub, Root, Tld := extractResult.Sub, extractResult.Root, extractResult.Tld
+				SubDomain, Domain, Tld := extractResult.SubDomain, extractResult.Domain, extractResult.Tld
 
-				raw_url_parts := []string{Sub, Root, Tld}
+				raw_url_parts := []string{SubDomain, Domain, Tld}
 
 				n := 0
 				for _, val := range raw_url_parts {
@@ -80,7 +80,11 @@ func main() {
 	}
 	urls = unique(urls) // remove duplicates
 	sort.Strings(urls)  // sort alphabetically
-	err = os.WriteFile("mas-regulated-financial-institutions.txt", []byte(strings.Join(urls, "\n")), 0644)
+	if len(urls) > 0 {
+		err = os.WriteFile("mas-regulated-financial-institutions.txt", []byte(strings.Join(urls, "\n")), 0644)
+	} else {
+		log.Fatal("No URLs found")
+	}
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)

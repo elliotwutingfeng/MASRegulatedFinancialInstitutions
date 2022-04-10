@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/anaskhan96/soup v1.2.5
-	github.com/joeguo/tldextract v0.0.0-20210326083850-1ec7be2de68a
+	github.com/mjd2021usa/tldextract v0.9.2
 )
 
 require (
