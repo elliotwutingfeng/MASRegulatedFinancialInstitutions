@@ -36,7 +36,6 @@ lightnet.io
 lincfinancial.com
 logosproperty.com
 newforests.com.au
-none.pleaserefertoourparentcompany'swebiste-www.kenedix.com
 orchestraprivateequity.com
 ouect.com
 payop.com
@@ -367,7 +366,11 @@ www.eurexclearing.com
 www.eurofinasia.com
 www.euronext.com
 www.euronextfx.com
-www.everbridgepartners.com;www.everbridgepartners.sg;www.everbridgepartners.com.sg
+www.everbridgepartners.com
+www.everbridgepartners.com.cn
+www.everbridgepartners.com.hk
+www.everbridgepartners.com.sg
+www.everbridgepartners.sg
 www.evercore.com
 www.everstonecapital.com
 www.evolvecapitalasia.com
@@ -408,7 +411,6 @@ www.galena-invest.com
 www.galileeinvestment.com
 www.gao-cap.com
 www.gawcapital.com
-www.gcasavvian.com
 www.gem-asset.com
 www.gen.com.sg
 www.generalatlantic.com
@@ -527,6 +529,7 @@ www.jungle.vc
 www.kalanoscapital.com
 www.kasa.sg
 www.kendallcourt.com
+www.kenedix.com
 www.kenrich.com.sg
 www.kensington-trust.com
 www.kepcapital.com

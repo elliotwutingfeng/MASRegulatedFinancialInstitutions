@@ -71,11 +71,27 @@ func main() {
 				}
 				raw_url_parts = raw_url_parts[:n]
 
-				raw_url = strings.Join(raw_url_parts, ".")
+				raw_url_ := strings.Join(raw_url_parts, ".")
 				// to lower case
-				strings.ToLower(raw_url)
+				strings.ToLower(raw_url_)
 
-				urls[raw_url] = true
+				// special rules for known malformed urls
+				// to be deprecated when upstream fixes them
+				if strings.Contains(raw_url_, "www.kenedix.com") {
+					urls["www.kenedix.com"] = true
+				} else if strings.Contains(raw_url_, "www.everbridgepartners.com;") {
+					for _, val := range strings.Split(raw_url_, ";") {
+						urls[val] = true
+					}
+					if strings.Contains(raw_url, ".hk") {
+						urls["www.everbridgepartners.com.hk"] = true
+					}
+					if strings.Contains(raw_url, ".cn") {
+						urls["www.everbridgepartners.com.cn"] = true
+					}
+				} else {
+					urls[raw_url_] = true
+				}
 			}
 		}
 	}
