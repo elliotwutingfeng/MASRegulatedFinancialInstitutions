@@ -59,7 +59,7 @@ func main() {
 			rawURL = strings.TrimRight(rawURL, "/")
 			// to lowercase
 			rawURL = strings.ToLower(rawURL)
-			extractResult := extractor.Extract(fasttld.URLParams{URL: rawURL})
+			extractResult, _ := extractor.Extract(fasttld.URLParams{URL: rawURL})
 
 			// check if url is valid
 			if extractResult.RegisteredDomain != "" {
